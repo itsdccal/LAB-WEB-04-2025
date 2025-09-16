@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Portofolio | Contact</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h2 class="logo">PORTOFOLIO</h2>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contact Info -->
+    <section class="stats">
+        <h2>Informasi Kontak</h2>
+        <table>
+            <tr><th>Email</th><td>nurulazizzaah@gmail.com</td></tr>
+            <tr><th>Nomor Telepon</th><td>08xxxxxxxxxxxx</td></tr>
+            <tr><th>LinkedIn</th><td>Tidak Ada</td></tr>
+            <tr><th>Instagram</th><td>@abluv.e</td></tr>
+            <tr><th>GitHub</th><td><a href="https://github.com/jijah1304" target="_blank">github.com/jijah1304</a></td></tr>
+        </table>
+    </section>
+
+    <!-- Contact Form -->
+    <section>
+        <form class="contact-form" action="#" method="post">
+            <h2>Form Kontak</h2>
+
+            <label for="nama">Nama:</label>
+            <input type="text" id="nama" name="nama" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="telepon">Nomor Telepon:</label>
+            <input type="tel" id="telepon" name="telepon" required>
+
+            <label>Tipe Pesan:</label>
+            <div class="radio-group">
+                <label><input type="radio" name="tipe" value="Pertanyaan" required> Pertanyaan</label>
+                <label><input type="radio" name="tipe" value="Kritik"> Kritik</label>
+                <label><input type="radio" name="tipe" value="Saran"> Saran</label>
+                <label><input type="radio" name="tipe" value="Kerjasama"> Kerjasama</label>
+            </div>
+
+            <label for="pesan">Pesan Detail:</label>
+            <textarea id="pesan" name="pesan" rows="5" required></textarea>
+
+            <label>
+                <input type="checkbox" name="persetujuan" required>
+                Saya menyetujui data saya digunakan untuk keperluan komunikasi.
+            </label>
+
+            <button type="submit"><strong>Kirim</strong></button>
+        </form>
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Azizah Nurul Izzah | All Rights Reserved</p>
+        <p>
+            <a href="https://x.com/draftjijah" target="_blank">Twitter/X</a> |
+            <a href="https://www.instagram.com/abluv.e/" target="_blank">Instagram/IG</a> |
+            <a href="https://github.com/jijah1304" target="_blank">GitHub</a>
+        </p>
+    </footer>
+</body>
+</html>
