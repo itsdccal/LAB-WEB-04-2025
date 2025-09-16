@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="style.css">  
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">Zeleo</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>   
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="contact-info">
+            <h2>Informasi Kontak</h2>
+            <p>Jangan ragu untuk menghubungi saya melalui detail di bawah ini.</p>
+            <table>
+                <tr>
+                    <td>Email</td>
+                    <td><a href="mailto:dzaqhoiri24h@ms.unhas.ac.id" >imamqhoir@ui.ac.id</a></td>
+                </tr>
+                <tr>
+                    <td>Nomor Telepon</td>
+                    <td>+62 812 3456 7890</td>
+                </tr>
+                <tr>
+                    <td>LinkedIn</td>
+                    <td><a href="https://www.linkedin.com/in/imam-dza-qhoir-116155368/" target="_blank" >Imam D. Qhoir</a></td>
+                </tr>
+                <tr>
+                    <td>Instagram</td>
+                    <td><a href="https://www.instagram.com/qhosans_" target="_blank" >@qhosans_</a></td>
+                </tr>
+                <tr>
+                    <td>GitHub</td>
+                    <td><a href="https://github.com/ShinZeleo" target="_blank" >ShinZeleo</a></td>
+                </tr>
+            </table>
+        </section>
+        
+        <section class="contact-form">
+            <h2>Kirim Pesan</h2>
+            <form action="#">
+                <div class="form-group">
+                    <label>Nama Lengkap:</label>
+                    <input type="text" id="nama"  required>
+                </div>
+                <div class="form-group">
+                    <label>Alamat Email:</label>
+                    <input type="email" id="email"required>
+                </div>
+                <div class="form-group">
+                    <label>Nomor Telepon:</label>
+                    <input type="tel" id="telepon" required>
+                </div>
+                <div class="form-group">
+                    <fieldset>
+                        <legend>Tipe Pesan:</legend>
+                        <label><input type="radio" name="tipe_pesan"  required> Pertanyaan</label>
+                        <label><input type="radio" name="tipe_pesan" > Kritik</label>
+                        <label><input type="radio" name="tipe_pesan" > Saran</label>
+                        <label><input type="radio" name="tipe_pesan" > Kerjasama</label>
+                    </fieldset>
+                </div>
+                <div class="form-group">
+                    <label>Pesan Detail:</label>
+                    <textarea id="pesan"  rows="5" placeholder="Masukkan pesan disini" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" required>
+                        Saya setuju data saya disimpan untuk keperluan korespondensi.
+                    </label>
+                </div>
+                <button type="submit" class="btn">Kirim Pesan</button>
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <h4>&copy; 2025 Zeleo. Hak Cipta Dilindungi katanya.</h4>
+            <div class="social-links">
+                <a href="https://www.youtube.com/@qhosans841" target="_blank" ><img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="Youtube" style="width: 30px;"></a>
+                <a href="https://github.com/ShinZeleo" target="_blank" ><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="Github" style="width: 30px;"></a>
+                <a href="https://www.instagram.com/qhosans_" target="_blank" ><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="width: 30px;"></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
