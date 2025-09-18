@@ -1,0 +1,183 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #fffaf0; /* pastel cream */
+    color: #444;
+}
+
+/* Header */
+header {
+    background-color: #a8dadc; /* pastel blue */
+    color: #2c3e50;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    border-bottom: 2px solid #f8edeb;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #264653;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: #264653;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s, background 0.3s;
+    padding: 6px 10px;
+    border-radius: 5px;
+}
+
+nav ul li a:hover {
+    background-color: #ffe5ec; /* pastel pink background */
+    color: #d45d79;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 50px 20px;
+    background: linear-gradient(135deg, #fde2e4, #cde8e5); /* pink + mint pastel */
+    color: #444;
+}
+
+.hero-section .profile-pic {
+    border-radius: 50%;
+    border: 4px solid #fff;
+    margin-bottom: 15px;
+}
+
+/* Section Umum */
+section {
+    padding: 25px;
+    margin: 25px auto;
+    max-width: 900px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+}
+
+/* Heading */
+h2 {
+    margin-bottom: 15px;
+    color: #457b9d;
+    border-left: 5px solid #ffb5a7;
+    padding-left: 10px;
+    
+}
+p {
+    margin-bottom: 15px;
+    color: #555;
+    text-align: justify;
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+table th, table td {
+    border: 1px solid #e9ecef;
+    padding: 10px;
+}
+
+table th {
+    background-color: #f8edeb; /* soft pink */
+    text-align: left;
+}
+
+/* List */
+ul, ol, dl {
+    margin-left: 20px;
+    color: #555;
+}
+
+/* Contact Form */
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form input,
+.contact-form textarea,
+.contact-form button {
+  margin-bottom: 0px;  
+  padding: 5px;         
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  box-sizing: border-box; 
+}
+
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #a8dadc;
+    box-shadow: 0 0 6px rgba(168,218,220,0.6);
+}
+
+.contact-form button {
+    background-color: #ffb5a7; /* pastel peach */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.contact-form button:hover {
+    background-color: #f08080; /* soft coral */
+}
+
+/* Footer */
+footer {
+    background-color: #a8dadc;
+    color: #264653;
+    text-align: center;
+    align-items: center;
+    padding: 15px;
+    margin-top: auto;
+    border-top: 2px solid #f8edeb;
+}
+
+footer p {
+    margin: 5px 0;
+    font-size: 14px;
+    text-align: center;
+}
+
+footer a {
+    color: #d45d79; /* pastel pink */
+    text-decoration: none;
+    text-align: center;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    text-align: center;
+}
+
