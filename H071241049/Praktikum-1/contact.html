@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Contact</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">MyPortfolio</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section>
+    <h2>Informasi Kontak</h2>
+    <table>
+      <tr><th>Email</th><td>rnratika@gmail.com</td></tr>
+      <tr><th>Nomor Telepon</th><td>+62 8123456789</td></tr>
+      <tr><th>LinkedIn</th><td><a href="#">linkedin.com/in/rnratika</a></td></tr>
+      <tr><th>Instagram</th><td><a href="https://www.instagram.com/rnratika">@rnratika</a></td></tr>
+      <tr><th>GitHub</th><td><a href="https://github.com/rnratika">github.com/rnratika</a></td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Formulir Kontak</h2>
+    <form>
+      <label for="nama">Nama:</label>
+      <input type="text" id="nama" name="nama" required><br>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required><br>
+
+      <label for="telp">Nomor Telepon:</label>
+      <input type="tel" id="telp" name="telp" required><br>
+
+      <p>Tipe Pesan:</p>
+      <label><input type="radio" name="tipe" value="pertanyaan" required> Pertanyaan</label>
+      <label><input type="radio" name="tipe" value="kritik"> Kritik</label>
+      <label><input type="radio" name="tipe" value="saran"> Saran</label>
+      <label><input type="radio" name="tipe" value="kerjasama"> Kerjasama</label><br>
+
+      <label for="pesan">Pesan:</label><br>
+      <textarea id="pesan" name="pesan" rows="5" required></textarea><br>
+
+      <label><input type="radio" required> Saya menyetujui pengolahan data ini</label><br>
+
+      <button type="submit">Kirim</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 MyPortfolio | Follow me on 
+      <a href="https://www.instagram.com/rnratika">Instagram</a>, 
+      <a href="https://github.com/rnratika">GitHub</a>
+    </p>
+  </footer>
+</body>
+</html>
