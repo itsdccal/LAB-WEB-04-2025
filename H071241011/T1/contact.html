@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kontak - Muhammad Fadhil Mulyadi</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header class="navbar">
+        <div class="logo">© Code by Fadhil</div>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <main class="main-content">
+        <div class="content-wrapper">
+          <h2>Hubungi Saya</h2>
+
+          <div class="contact-container">
+            <div class="contact-table">
+              <table>
+                <tr>
+                  <th>Email</th>
+                  <td>blabla@gmail.com</td>
+                </tr>
+                <tr>
+                  <th>Nomor Telepon</th>
+                  <td>0812345679</td>
+                </tr>
+                <tr>
+                  <th>LinkedIn</th>
+                  <td>linkedin.com/in/username</td>
+                </tr>
+                <tr>
+                  <th>Instagram</th>
+                  <td>@instagram</td>
+                </tr>
+                <tr>
+                  <th>GitHub</th>
+                  <td>github.com/username</td>
+                </tr>
+              </table>
+            </div>
+
+            <div class="contact-form">
+              <h3>Kirim Pesan</h3>
+              <form>
+                <label for="nama">Nama:</label>
+                <input type="text" id="nama" name="nama" required />
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required />
+
+                <label for="notelp">Nomor Telepon:</label>
+                <input type="tel" id="notelp" name="notelp" required />
+
+                <div class="radio-group">
+                  <label>Tujuan:</label>
+                  <div class="radio-option">
+                    <input type="radio" id="tanya" name="tujuan" value="tanya" />
+                    <label for="tanya">Pertanyaan</label>
+                  </div>
+                  <div class="radio-option">
+                    <input type="radio" id="kritik" name="tujuan" value="kritik" />
+                    <label for="kritik">Kritik</label>
+                  </div>
+                  <div class="radio-option">
+                    <input type="radio" id="saran" name="tujuan" value="saran" />
+                    <label for="saran">Saran</label>
+                  </div>
+                  <div class="radio-option">
+                    <input type="radio" id="colab" name="tujuan" value="colab" />
+                    <label for="colab">Kerjasama</label>
+                  </div>
+                </div>
+
+                <label for="pesan">Pesan:</label>
+                <textarea id="pesan" name="pesan" rows="4" required></textarea>
+
+                <div class="checkbox-group">
+                  <input type="checkbox" id="setuju" name="setuju" required />
+                  <label for="setuju">Data anda akan saya jual</label>
+                </div>
+
+                <input type="submit" value="Submit" />
+              </form>
+            </div>
+          </div>
+
+          <footer>
+            <p>
+              <a href="https://facebook.com">
+                <i class="fa-brands fa-facebook"></i> Facebook
+              </a>
+              |
+              <a href="https://twitter.com">
+                <i class="fa-brands fa-twitter"></i> Twitter
+              </a>
+              |
+              <a href="https://instagram.com">
+                <i class="fa-brands fa-instagram"></i> Instagram
+              </a>
+            </p>
+          </footer>
+        </div>
+      </main>
+
+      <footer class="sidebar-footer">
+        <p>&copy; 2025 M. Fadhil Mulyadi</p>
+      </footer>
+    </div>
+  </body>
+</html>
