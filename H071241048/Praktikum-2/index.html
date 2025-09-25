@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kisah yang Pernah Ada</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@700&family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+
+    <style>
+        .font-poppins { font-family: 'Poppins', sans-serif; }
+        .font-playfair { font-family: 'Playfair Display', serif; }
+        .font-dancing { font-family: 'Dancing Script', cursive; }
+    </style>
+</head>
+
+<body class="bg-gradient-to-r from-pink-100 via-pink-200 to-pink-100 text-gray-800">
+    
+    <nav class="bg-gradient-to-t from-white to-pink-100 shadow sticky top-0 z-50 mb-3">
+        <div class="container mx-auto flex items-center justify-between px-4 py-3">
+            <div class="font-dancing  text-2xl font-extrabold">Sisa Rasa</div>
+            <ul class="flex flex-col md:flex-row md:space-x-6 space-y-2 md:space-y-0 font-medium font-playfair text-center md:text-left">
+                <li><a href="#beranda" class="hover:text-pink-600">Beranda</a></li>
+                <li class="hidden md:block"><a href="#tentang" class="hover:text-pink-600">Tentang</a></li>
+                <li class="hidden md:block"><a href="#jejak" class="hover:text-pink-600">Kisah</a></li>
+                <li class="hidden md:block"><a href="#gallery" class="hover:text-pink-600">Galeri</a></li>
+                <li class="hidden md:block"><a href="#testimoni" class="hover:text-pink-600">Testimoni</a></li>
+                <li><a href="#pesan" class="hover:text-pink-600">Pesan</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="w-[80%] mx-auto">
+        <header id="beranda" class="container mx-auto px-4 py-12 text-center scroll-mt-10">
+            <h1 class="font-dancing text-4xl md:text-5xl font-bold mb-3">Kenangan Indah Bersama Mantan Tersayang</h1>
+            <p class="font-poppins text-lg md:text-xl text-gray-600">
+                Sebuah ruang untuk menyimpan kenangan, tawa, dan pelajaran bersama dia yang pernah menjadi bagian terindah dalam hidupmu.
+            </p>
+        </header>
+
+        <section id="hero" class="container mx-auto px-4 py-10 flex flex-col md:flex-row items-center gap-8">
+            <div class="relative mx-auto max-w-sm group">
+            <img src="assets/hero-mantan.png" 
+                alt="Gambar 1" 
+                class="w-full h-auto object-cover rounded-2xl shadow-xl group-hover:hidden">
+            <img src="assets/hero-mantan2.png" 
+                alt="Gambar 2" 
+                class="w-full h-auto object-cover rounded-2xl shadow-xl hidden group-hover:block">
+            </div>
+
+            <div class="md:w-1/2 flex flex-col items-start">
+                <h2 class="font-dancing text-3xl font-semibold mb-4 ">Menghargai Perjalanan, Merelakan Kenangan</h2>
+                <p class="text-gray-600 mb-6 text-right font-poppins">
+                    Ada waktu bagi setiap kisah untuk datang dan pergi. Tempat ini hadir agar kamu tetap bisa menaruh kenangan bersama dia yang pernah begitu berarti.
+                </p>
+                <a href="#pesan" class="px-6 py-3 mt-10 bg-pink-500 text-white font-poppins rounded-full shadow hover:bg-pink-700 hover:font-bold transition">Kirim Pesan</a>
+            </div>
+        </section>
+
+        <section id="tentang" class="container mx-auto px-4 py-10 scroll-mt-16">
+            <h3 class="font-dancing text-2xl font-bold mb-4">Tentang Website Ini</h3>
+
+            <p class="text-gray-700 mb-5 text-left md:text-center font-poppins">
+                Website ini dibuat untuk mengenang perjalanan cinta yang pernah singgah dalam hidupmu. 
+                Di sini, setiap kata, foto, dan kenangan menjadi ruang kecil yang menampung jejak perasaan. 
+                Tempat di mana kamu bisa menuliskan pesan, menyimpan memori indah, atau sekadar merayakan kisah 
+                yang tak lagi berjalan, namun tetap memiliki arti yang dalam.
+            </p>
+            <p class="text-gray-700 text-right md:text-center font-poppins">
+                Karena setiap mantan punya cerita, entah itu penuh tawa, air mata, atau pelajaran berharga. 
+                Mari abadikan momen itu, bukan untuk kembali, melainkan untuk menghargai perjalanan dan merelakan 
+                kenangan yang pernah ada, agar hati bisa melangkah lebih ringan ke masa depan.
+            </p>
+        </section>
+
+        <section class="container mx-auto px-4 py-10 ">
+            <h3 class="font-dancing text-2xl font-bold mb-6">Fitur-fitur</h3>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow flex flex-col items-center">
+                    <span class="text-4xl mb-2">📸</span>
+                    <h4 class="font-playfair font-bold">Galeri Kenangan</h4>
+                    <p class="text-gray-600 text-center">Upload foto-foto momen indah yang pernah tercipta bersama mantan.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow flex flex-col items-center">
+                    <span class="text-4xl mb-2">💌</span>
+                    <h4 class="font-playfair font-bold">Pesan Tak Tersampaikan</h4>
+                    <p class="text-gray-600 text-center">Tulis pesan, harapan, atau kata perpisahan untuk mantanmu.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow flex flex-col items-center">
+                    <span class="text-4xl mb-2">🎶</span>
+                    <h4 class="font-playfair font-bold">Playlist Kenangan</h4>
+                    <p class="text-gray-600 text-center">Buat playlist lagu yang pernah jadi soundtrack perjalanan kalian.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="jejak" class="container mx-auto px-4 py-10 scroll-mt-12">
+            <h3 class="font-dancing text-2xl font-bold mb-6 text-center">Jejak Kisah</h3>
+            
+            <div class="border-l-4 border-pink-400 pl-5 text-left p-1.5">
+                <h4 class="font-playfair font-bold text-pink-700">Pertemuan Pertama</h4>
+                <p class="font-poppins text-gray-600 text-sm ">Saat segalanya terasa baru dan penuh harapan.</p>
+            </div>
+            <div class="border-r-4 border-pink-400 pr-5 text-right p-1.5">
+                <h4 class="font-playfair font-bold text-pink-700">Momen Terindah</h4>
+                <p class="font-poppins text-gray-600 text-sm">Tawa, cerita, dan perjalanan yang masih tersimpan dalam ingatan.</p>
+            </div>
+            <div class="border-l-4 border-pink-400 pl-5 text-left p-1.5">
+                <h4 class="font-playfair font-bold text-pink-700">Perpisahan</h4>
+                <p class="font-poppins text-gray-600 text-sm">Sebuah akhir yang mengajarkan arti merelakan.</p>
+            </div>
+            <div class="border-r-4 border-pink-400 pr-5 text-right p-1.5">
+                <h4 class="font-playfair font-bold text-pink-700">Kenangan Abadi</h4>
+                <p class="font-poppins text-gray-600 text-sm">Meski usai, kisah itu tetap menjadi bagian berharga dalam hidupmu.</p>
+            </div>
+        </section>
+
+        <section class="py-16">
+            <div class="text-left font-playfair italic text-2xl text-pink-700 p-5">
+                "Beberapa kenangan tidak untuk dilupakan, hanya untuk dikenang."
+            </div>
+                <div class="text-right font-playfair italic text-2xl text-pink-700 p-5">
+                "Ada kisah yang selesai, tapi tetap hidup di dalam ingatan."
+            </div>
+            <div class="text-left font-playfair italic text-2xl text-pink-700 p-5">
+                "Mencintai pernah membuatmu bahagia, merelakan kini membuatmu kuat."
+            </div>
+        </section>
+
+        <section id="gallery" class="container mx-auto px-4 py-10 scroll-mt-10">
+            <h3 class="font-dancing text-2xl font-bold mb-6 text-center">Galeri Kenangan</h3>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <img src="assets/m1.jpg" class="rounded-lg shadow">
+                <img src="assets/m2.jpg" class="rounded-lg shadow">
+                <img src="assets/m3.jpg" class="rounded-lg shadow">
+                <img src="assets/m4.jpg" class="rounded-lg shadow">
+                <img src="assets/m5.jpg" class="rounded-lg shadow hidden md:block">
+                <img src="assets/m6.jpg" class="rounded-lg shadow hidden md:block">
+            </div>
+        </section>
+
+        <section id="testimoni" class="container mx-auto px-4 py-10 scroll-mt-12">
+            <h3 class="font-dancing text-2xl font-bold mb-6 text-center">Testimoni</h3>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow text-center">
+                    <img src="assets/testi1.png" alt="Testimoni 1" class="mx-auto rounded-xl w-96 object-cover mb-4">
+                    <p class="italic text-gray-700 mb-2">
+                        "Lewat website ini, aku bisa menyimpan kenangan dan belajar untuk ikhlas melepas mantan."
+                    </p>
+                    <p class="font-playfair font-semibold text-gray-800">- Zhafira</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow text-center">
+                    <img src="assets/testi2.png" alt="Testimoni 2" class="mx-auto rounded-xl w-96 object-cover mb-4">
+                    <p class="italic text-gray-700 mb-2">
+                        "Galeri kenangannya bikin aku tersenyum, walau kisah kami sudah selesai."
+                    </p>
+                    <p class="font-playfair font-semibold text-gray-800">- Reyza</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="pesan" class="container mx-auto px-4 py-10 scroll-mt-10">
+            <h3 class="font-dancing text-2xl font-bold mb-4 text-center">Sampaikan Pesan untuk Mantanmu</h3>
+            <form class="max-w-lg mx-auto bg-white p-8 rounded-xl shadow space-y-4">
+                <div>
+                    <label class="block font-playfair font-semibold mb-1">Nama</label>
+                    <input type="text" class="italic w-full text-sm border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-pink-500" placeholder="Nama Lengkap/Nama Panggilan" />
+                </div>
+                <div>
+                    <label class="block font-playfair font-semibold mb-1">Email</label>
+                    <input type="email" class="italic w-full text-sm border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-pink-500" placeholder="Alamat emailnya" />
+                </div>
+                <div>
+                    <label class="block font-playfair font-semibold mb-1">Pesan</label>
+                    <textarea class="italic w-full text-sm border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-pink-500" placeholder="Tuliskan disini pesan untuk mantan..."></textarea>
+                </div>
+                <button class="w-full bg-pink-600 text-white py-2 rounded-lg font-poppins font-semibold hover:bg-pink-700 transition">Kirim Ke Mantan</button>
+            </form>
+        </section>
+    </div>
+
+    <footer class="bg-pink-700 text-white text-sm py-6 mt-10 font-poppins ">
+        <div class="container mx-auto text-center space-y-2">
+            <div>
+                &copy; 2025 Imamm. Dibuat dengan Cinta❤️.
+            </div>
+            <div class="flex justify-center space-x-4">
+                <a href="https://www.instagram.com/qhosans_" target="_blank" class="hover:underline">Instagram</a>
+                <a href="https://api.whatsapp.com/send?phone=628123456789" target="_blank" class="hover:underline">WhatsApp</a>
+                <a href="https://policies.google.com/privacy?hl=id" target="_blank" class="hover:underline">Kebijakan Privasi</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
