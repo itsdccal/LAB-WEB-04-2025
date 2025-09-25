@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Person</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+        @layer base {
+            :root {
+                --color-cream: #faf2e5;
+                --color-dark-green: #3d5300;
+                --color-light-green: #a3b464;
+                --color-tosca: #005153;
+                --color-white: #ffffff;
+                --color-black: #000000;
+            }
+        }
+        .font-playfair {
+            font-family: 'Playfair Display', serif;
+        }
+        .font-poppins {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Custom backgrounds */
+        .bg-cream { background-color: var(--color-cream); }
+        .bg-dark-green { background-color: var(--color-dark-green); }
+        .bg-light-green { background-color: var(--color-light-green); }
+        .bg-tosca { background-color: var(--color-tosca); }
+        .bg-white { background-color: var(--color-white); }
+        .bg-black { background-color: var(--color-black); }
+
+        /* Custom text colors */
+        .text-cream { color: var(--color-cream); }
+        .text-dark-green { color: var(--color-dark-green); }
+        .text-light-green { color: var(--color-light-green); }
+        .text-tosca { color: var(--color-tosca); }
+        .text-white { color: var(--color-white); }
+
+        /* Background pattern for cream */
+        /* .bg-cream.has-pattern {
+            background-image: url('/asset/Bg.png');
+            background-repeat: repeat;
+        } */
+
+        @keyframes scroll-left {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+
+        @keyframes scroll-right {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-100% + 100vw)); }
+        }
+
+        /* .animate-scroll-left {
+            animation: scroll-left 40s linear infinite;
+        }
+
+        .animate-scroll-right {
+            animation: scroll-right 10s linear infinite;
+        }
+        .group:hover .animate-scroll-left {
+            animation-play-state: paused;
+        }
+        .group:hover .animate-scroll-right {
+            animation-play-state: paused;
+        }
+
+        .hover-transform:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease-in-out;
+        } */
+    </style>
+</head>
+<body class="bg-black text-white font-poppins overflow-x-hidden">
+
+    <header class="fixed top-0 left-0 w-full z-50 bg-dark-green text-cream">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="font-playfair text-3xl font-bold italic">The Person</div>
+            <div class="space-x-8 text-lg font-light">
+                <a href="#home" class="font-semibold hover:border-b-2 hover:border-cream pb-1 transition-all duration-100">Home</a>
+                <a href="#about" class="font-semibold hover:border-b-2 hover:border-cream pb-1 transition-all duration-100">About</a>
+                <a href="#features" class="font-semibold hover:border-b-2 hover:border-cream pb-1 transition-all duration-100">Feature</a>
+                <a href="#testimonial" class="font-semibold hover:border-b-2 hover:border-cream pb-1 transition-all duration-100">Testimonial</a>
+                <a href="#contact" class="font-semibold hover:border-b-2 hover:border-cream pb-1 transition-all duration-100">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <section id="home" class="min-h-screen flex items-center justify-center p-8 bg-black">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-center gap-12 pt-24 md:pt-0">
+            <div class="w-full md:w-1/2 flex justify-center">
+                <img src="asset/21.png" alt="For the moments with them" class="w-80 h-80 object-contain">
+            </div>
+            <div class="w-full md:w-1/2 text-center md:text-left">
+                <h1 class="text-3xl md:text-4xl font-playfair font-bold leading-tight mb-6 mr-10">
+                    Craft a tribute to yourself alongside 'The Person'! This way, you can cherish the moments you've shared together!
+                </h1>
+                <a href="#about" class="bg-tosca text-cream py-3 px-8 rounded-full text-lg font-bold hover:bg-light-green hover:text-dark-green transition-colors duration-100">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="w-full overflow-hidden bg-dark-green">
+        <div class="flex whitespace-nowrap py-4 animate-scroll-right">
+            <div class="flex items-center space-x-4">
+                <div class="w-16 h-16 bg-light-green"></div>
+                <div class="w-16 h-16 bg-tosca"></div>
+                <div class="w-16 h-16 bg-cream"></div>
+                <div class="w-16 h-16 bg-light-green"></div>
+                <div class="w-16 h-16 bg-tosca"></div>
+                <div class="w-16 h-16 bg-cream"></div>
+                <div class="w-16 h-16 bg-light-green"></div>
+                <div class="w-16 h-16 bg-tosca"></div>
+                <div class="w-16 h-16 bg-cream"></div>
+                <div class="w-16 h-16 bg-light-green"></div>
+                <div class="w-16 h-16 bg-tosca"></div>
+                <div class="w-16 h-16 bg-cream"></div>
+                <div class="w-16 h-16 bg-light-green"></div>
+                <div class="w-16 h-16 bg-tosca"></div>
+                <div class="w-16 h-16 bg-cream"></div>
+                <div class="w-16 h-16 bg-light-green"></div>
+                <div class="w-16 h-16 bg-tosca"></div>
+                <div class="w-16 h-16 bg-cream"></div>
+                <div class="w-16 h-16 bg-light-green"></div>
+                <div class="w-16 h-16 bg-tosca"></div>
+                <div class="w-16 h-16 bg-cream"></div>
+                <div class="w-16 h-16 bg-light-green"></div>
+                <div class="w-16 h-16 bg-tosca"></div>
+                <div class="w-16 h-16 bg-cream"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="min-h-screen flex items-center justify-center p-8 bg-light-green text-dark-green">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-center gap-12">
+            <div class="w-full md:w-1/2 flex justify-center">
+                <div class="relative w-80 h-80 overflow-hidden hover-transform">
+                    <img src="asset/22.png" alt="Jijah" class="absolute inset-0 w-full h-full object-cover">
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 text-center md:text-left m-10">
+                <h2 class="text-4xl md:text-6xl font-playfair font-bold mb-4 italic">About The Creator</h2>
+                <p class="text-xl font-poppins font-light leading-relaxed mr-10">
+                    This enchanting website blossomed from the author's heartfelt desire to cherish the vivid memories shared with her beloved long-distance relationship partner. Thus, <span class="text-tosca font-bold">capture and share your cherished moments</span> with 'The Person' who holds a special place in your heart!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="min-h-screen flex flex-col items-center justify-center p-8 bg-black text-cream">
+        <div class="text-center mb-12 mt-24">
+            <h2 class="text-5xl font-playfair font-bold text-cream">Features</h2>
+            <p class="text-lg text-white font-poppins font-semibold mt-2">Share your moments with them!</p>
+        </div>
+        <div class="container mx-auto">
+            <div class="w-full overflow-hidden group">
+                <div class="flex whitespace-nowrap space-x-4 py-4 animate-scroll-right">
+                    <div class="flex-shrink-0 w-72 p-4 bg-cream rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:scale-105">
+                        <img src="asset/12.png" alt="Image 12" class="w-full h-auto rounded-lg mb-2">
+                        <p class="text-center text-sm font-poppins font-bold text-tosca">August recap with them!!!</p>
+                    </div>
+                    <div class="flex-shrink-0 w-72 p-4 bg-dark-green rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:scale-105">
+                        <img src="asset/14.png" alt="Image 13" class="w-full h-auto rounded-lg mb-2">
+                        <p class="text-center text-sm font-poppins font-bold text-cream">Took a walk with Opet, hihi.</p>
+                    </div>
+                    <div class="flex-shrink-0 w-72 p-4 bg-white rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:scale-105">
+                        <img src="asset/13.png" alt="Image 14" class="w-full h-auto rounded-lg mb-2">
+                        <p class="text-center text-sm font-poppins font-bold text-light-green">why hes so gud at making cookies?!?</p>
+                    </div>
+                    <div class="flex-shrink-0 w-72 p-4 bg-tosca rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:scale-105">
+                        <img src="asset/15.png" alt="Image 15" class="w-full h-auto rounded-lg mb-2">
+                        <p class="text-center text-sm font-poppins font-bold text-white">My whole January in just 1 design</p>
+                    </div>
+                    <div class="flex-shrink-0 w-72 p-4 bg-light-green rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:scale-105">
+                        <img src="asset/16.png" alt="Image 12" class="w-full h-auto rounded-lg mb-2">
+                        <p class="text-center text-sm font-poppins font-bold text-dark-green">This view is FIREE</p>
+                    </div>
+                    <div class="flex-shrink-0 w-72 p-4 bg-cream rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:scale-105">
+                        <img src="asset/12.png" alt="Image 12" class="w-full h-auto rounded-lg mb-2">
+                        <p class="text-center text-sm font-poppins font-bold text-tosca">August recap with them!!!</p>
+                    </div>
+                    <div class="flex-shrink-0 w-72 p-4 bg-dark-green rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:scale-105">
+                        <img src="asset/14.png" alt="Image 13" class="w-full h-auto rounded-lg mb-2">
+                        <p class="text-center text-sm font-poppins font-bold text-cream">Took a walk with Opet, hihi.</p>
+                    </div>
+                    <div class="flex-shrink-0 w-72 p-4 bg-white rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:scale-105">
+                        <img src="asset/13.png" alt="Image 14" class="w-full h-auto rounded-lg mb-2">
+                        <p class="text-center text-sm font-poppins font-bold text-light-green">why hes so gud at making cookies?!?</p>
+                    </div>
+                    <div class="flex-shrink-0 w-72 p-4 bg-tosca rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:scale-105">
+                        <img src="asset/15.png" alt="Image 15" class="w-full h-auto rounded-lg mb-2">
+                        <p class="text-center text-sm font-poppins font-bold text-white">My whole January in just 1 design</p>
+                    </div>
+                    <div class="flex-shrink-0 w-72 p-4 bg-light-green rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:scale-105">
+                        <img src="asset/16.png" alt="Image 12" class="w-full h-auto rounded-lg mb-2">
+                        <p class="text-center text-sm font-poppins font-bold text-dark-green">This view is FIREE</p>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full overflow-hidden mt-8 group">
+                <div class="flex whitespace-nowrap space-x-4 py-4 animate-scroll-left">
+                    <div class="flex-shrink-0 w-72 rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:scale-105">
+                        <img src="asset/1.png" alt="Image 1" class="w-full h-auto rounded-lg mb-2">
+                    </div>
+                    <div class="flex-shrink-0 w-72 rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:scale-105">
+                        <img src="asset/2.png" alt="Image 2" class="w-full h-auto rounded-lg mb-2">
+                    </div>
+                    <div class="flex-shrink-0 w-72 rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:scale-105">
+                        <img src="asset/3.png" alt="Image 3" class="w-full h-auto rounded-lg mb-2">
+                    </div>
+                    <div class="flex-shrink-0 w-72 rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:scale-105">
+                        <img src="asset/4.png" alt="Image 4" class="w-full h-auto rounded-lg mb-2">
+                    </div>
+                    <div class="flex-shrink-0 w-72 rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:scale-105">
+                        <img src="asset/5.png" alt="Image 5" class="w-full h-auto rounded-lg mb-2">
+                    </div>
+                    <div class="flex-shrink-0 w-72 rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:scale-105">
+                        <img src="asset/6.png" alt="Image 6" class="w-full h-auto rounded-lg mb-2">
+                    </div>
+                    <div class="flex-shrink-0 w-72 rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:scale-105">
+                        <img src="asset/7.png" alt="Image 7" class="w-full h-auto rounded-lg mb-2">
+                    </div>
+                    <div class="flex-shrink-0 w-72 rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:scale-105">
+                        <img src="asset/1.png" alt="Image 1" class="w-full h-auto rounded-lg mb-2">
+                    </div>
+                    <div class="flex-shrink-0 w-72 rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:scale-105">
+                        <img src="asset/2.png" alt="Image 2" class="w-full h-auto rounded-lg mb-2">
+                    </div>
+                    <div class="flex-shrink-0 w-72 rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:scale-105">
+                        <img src="asset/3.png" alt="Image 3" class="w-full h-auto rounded-lg mb-2">
+                    </div>
+                    <div class="flex-shrink-0 w-72 rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:scale-105">
+                        <img src="asset/4.png" alt="Image 4" class="w-full h-auto rounded-lg mb-2">
+                    </div>
+                    <div class="flex-shrink-0 w-72 rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:scale-105">
+                        <img src="asset/5.png" alt="Image 5" class="w-full h-auto rounded-lg mb-2">
+                    </div>
+                    <div class="flex-shrink-0 w-72 rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:scale-105">
+                        <img src="asset/6.png" alt="Image 6" class="w-full h-auto rounded-lg mb-2">
+                    </div>
+                    <div class="flex-shrink-0 w-72 rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:scale-105">
+                        <img src="asset/7.png" alt="Image 7" class="w-full h-auto rounded-lg mb-2">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonial" class="min-h-screen flex items-center justify-center p-8 bg-black text-cream">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-center gap-12 pt-24 md:pt-0">
+            <div class="w-full md:w-1/2 flex justify-center">
+                <img src="asset/24.png" alt="Testimonial chat" class="w-96 h-auto rounded-lg shadow-lg">
+            </div>
+            <div class="w-full md:w-1/2 text-center md:text-left">
+                <img src="asset/23.png" alt="What others are saying" class="w-80 h-80 object-contain">
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="min-h-screen flex flex-col items-center justify-center p-8 bg-black text-cream">
+        <div class="container mx-auto max-w-4xl text-center pt-24">
+            <h2 class="text-5xl font-playfair font-bold italic mb-6">Reach out to us!</h2>
+            <p class="text-xl font-poppins font-light mb-12">Should you have inquiries, or wish to receive fresh insights and the latest news.</p>
+            <div class="flex flex-col md:flex-row gap-6 mb-6">
+                <input type="email" placeholder="Email" class="w-full bg-light-green text-dark-green rounded-full px-6 py-4 placeholder-white font-poppins focus:outline-none focus:ring-2 focus:ring-tosca transition-colors duration-300">
+                <input type="text" placeholder="Name" class="w-full bg-light-green text-dark-green rounded-full px-6 py-4 placeholder-white font-poppins focus:outline-none focus:ring-2 focus:ring-tosca transition-colors duration-300">
+                <input type="text" placeholder="Country" class="w-full bg-light-green text-dark-green rounded-full px-6 py-4 placeholder-white font-poppins focus:outline-none focus:ring-2 focus:ring-tosca transition-colors duration-300">
+            </div>
+            <textarea placeholder="Message" rows="6" class="w-full bg-dark-green text-white rounded-xl px-6 py-4 placeholder-white font-poppins focus:outline-none focus:ring-2 focus:ring-tosca transition-colors duration-300"></textarea>
+            <button class="bg-tosca text-cream py-4 px-12 rounded-full mt-8 text-xl font-poppins font-bold hover:bg-light-green hover:text-dark-green transition-colors duration-300">SUBMIT</button>
+        </div>
+    </section>
+
+<footer class="bg-tosca text-cream py-8 mt-12">
+  <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
+    <div class="text-center md:text-left">
+      <p class="text-sm font-poppins font-medium">
+        Terima kasih yang sebesar-besarnya kepada <span class="font-bold">LOCKET</span> sebagai bahan inspirasi saya membuat website HTML/CSS/TAILWIND ini.
+      </p>
+      <p class="mt-4 font-poppins font-bold">&copy; 2025 The Person. All Rights Reserved.</p>
+    </div>
+
+    <!-- ICONS dengan warna hijau muda -->
+    <div class="flex space-x-4 mt-6 md:mt-0 text-3xl">
+      <a href="#" aria-label="GitHub">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/github.svg"
+          class="h-8 w-8" style="filter: invert(64%) sepia(22%) saturate(534%) hue-rotate(42deg) brightness(95%) contrast(89%);" />
+      </a>
+      <a href="#" aria-label="LinkedIn">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linkedin.svg"
+          class="h-8 w-8" style="filter: invert(64%) sepia(22%) saturate(534%) hue-rotate(42deg) brightness(95%) contrast(89%);" />
+      </a>
+      <a href="#" aria-label="Instagram">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/instagram.svg"
+          class="h-8 w-8" style="filter: invert(64%) sepia(22%) saturate(534%) hue-rotate(42deg) brightness(95%) contrast(89%);" />
+      </a>
+      <a href="#" aria-label="X">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/x.svg"
+          class="h-8 w-8" style="filter: invert(64%) sepia(22%) saturate(534%) hue-rotate(42deg) brightness(95%) contrast(89%);" />
+      </a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
