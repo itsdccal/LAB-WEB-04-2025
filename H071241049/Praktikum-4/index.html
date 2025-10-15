@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game UNO</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="game-container">
+        <div class="player-area" id="bot-area">
+            <h2>Kartu Bot (<span id="bot-card-count">7</span>)</h2>
+            <div class="hand" id="bot-hand">
+                </div>
+        </div>
+
+        <div id="game-table">
+            <div class="deck-pile">
+                <p>DECK</p>
+                <div id="deck" class="card card-back"></div>
+            </div>
+            <div id="status-log">Permainan Dimulai!</div>
+            <div class="deck-pile">
+                <p>KARTU</p>
+                <div id="discard-pile">
+                    </div>
+            </div>
+        </div>
+
+        <div class="player-area" id="player-area">
+            <div class="player-info">
+                <h2>Kartu Anda (<span id="player-card-count">7</span>)</h2>
+                <div class="balance-info">
+                    <strong>Saldo:</strong> $<span id="player-balance">5000</span>
+                </div>
+            </div>
+            <div class="hand" id="player-hand">
+                </div>
+            <button id="uno-button" class="hidden">UNO!</button>
+        </div>
+    </div>
+
+    <div id="betting-modal" class="modal-overlay show">
+        <div class="modal-content">
+            <h2>Pasang Taruhan Anda</h2>
+            <p>Saldo Anda saat ini $<span id="modal-balance">5000</span>.</p>
+            <label for="bet-amount">Jumlah Taruhan (min $100)</label>
+            <input type="number" id="bet-amount" min="100" value="100">
+            <button id="start-round-btn">Mulai Ronde</button>
+        </div>
+    </div>
+
+    <div id="color-picker-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h2>Pilih Warna</h2>
+            <div class="color-options">
+                <div class="color-box" id="color-red" data-color="red"></div>
+                <div class="color-box" id="color-green" data-color="green"></div>
+                <div class="color-box" id="color-blue" data-color="blue"></div>
+                <div class="color-box" id="color-yellow" data-color="yellow"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="notification-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h2 id="notification-title">Ronde Selesai</h2>
+            <p id="notification-message">Anda memenangkan ronde!</p>
+            <button id="next-round-btn">Ronde Berikutnya</button>
+            <button id="restart-game-btn" class="hidden">Mulai Ulang Permainan</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
