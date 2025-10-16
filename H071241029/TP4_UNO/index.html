@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>UNO Game - Final</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1 class="title">UNO GAMES</h1>
+
+  <div class="controls">
+    Saldo: <span id="saldo">5000</span> |
+    Taruhan: <input id="taruhan" type="number" min="100" value="100" /> 
+    <button id="mulaiBtn">Mulai Game</button>
+    <button id="callUnoBtn">Panggil UNO Lawan</button>
+  </div>
+
+  <div id="gameArea" class="hidden">
+    <div id="topInfo" class="infoBar">
+      <div id="botCards" class="cards bot-area"></div>
+      <div id="middle" class="middle-area">
+        <div id="deck" onclick="playerDrawFromDeck()" class="deck-area"></div>
+        <div id="discardPile" class="discard-area"></div>
+        <div id="statusBox" class="status">Status: -</div>
+      </div>
+      <div id="playerCards" class="cards player-area"></div>
+    </div>
+
+    <div class="actions">
+      <button id="unoBtn" disabled>UNO!</button>
+    </div>
+
+    <div id="log" class="log"></div>
+  </div>
+
+  <!-- Modal warna -->
+  <div id="colorModal" class="modal hidden">
+    <div class="modal-content">
+      <h3>Pilih Warna Baru</h3>
+      <div class="color-options">
+        <button class="color-btn" style="background:red" onclick="chooseColor('red')"></button>
+        <button class="color-btn" style="background:green" onclick="chooseColor('green')"></button>
+        <button class="color-btn" style="background:blue" onclick="chooseColor('blue')"></button>
+        <button class="color-btn" style="background:yellow" onclick="chooseColor('yellow')"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal choice after draw -->
+  <div id="playChoiceModal" class="modal hidden">
+    <div class="modal-content">
+      <h3>Kartu yang kamu ambil bisa dimainkan</h3>
+      <p>Mau langsung mainkan kartu yang baru diambil atau lewati giliran?</p>
+      <div style="display:flex;gap:10px;justify-content:center">
+        <button onclick="confirmPlayDrawn(true)">Mainkan</button>
+        <button onclick="confirmPlayDrawn(false)">Lewati</button>
+      </div>
+      <p style="font-size:0.9em;color:#333;margin-top:8px">Pilihan otomatis 'Lewati' setelah 8 detik.</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
