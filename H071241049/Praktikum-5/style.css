@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+:root {
+    --primary-color: #E91E63;
+    --secondary-color: #c2185b;
+    --text-color: #333;
+    --background-start: #fce4ec;
+    --background-end: #f8bbd0;
+    --white-_80: rgba(255, 255, 255, 0.8);
+    --white-_50: rgba(255, 255, 255, 0.5);
+    --white-_20: rgba(255, 255, 255, 0.2);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, var(--background-start) 0%, var(--background-end) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    color: var(--text-color);
+    overflow: hidden;
+    position: relative;
+}
+
+body::before,
+body::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: -1;
+}
+
+body::before {
+    background: #ff80ab;
+    width: 350px;
+    height: 350px;
+    top: -100px;
+    left: -100px;
+}
+
+body::after {
+    background: #f48fb1;
+    width: 300px;
+    height: 300px;
+    bottom: -80px;
+    right: -80px;
+}
+
+.container {
+    background: var(--white-_50);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--white-_80);
+    width: 100%;
+    max-width: 420px;
+}
+
+.dashboard-container {
+    max-width: 800px;
+}
+
+h1 {
+    text-align: center;
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+h2 {
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.dashboard-container h1, .dashboard-container h2 {
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 0.85rem;
+    border: 1px solid var(--white-_80);
+    border-radius: 10px;
+    box-sizing: border-box;
+    background: var(--white-_20);
+    color: var(--text-color);
+    font-family: inherit;
+    transition: all 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(233, 30, 99, 0.3);
+}
+
+button {
+    width: 100%;
+    padding: 0.85rem;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4);
+}
+
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.logout-link {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    margin: -10px 0 25px 0;
+    color: #ffffff;
+    background-color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.logout-link:hover {
+    background-color: #ffffff;
+    color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(233, 30, 99, 0.3);
+    text-decoration: none;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--white-_80);
+}
+
+thead th {
+    background-color: var(--primary-color);
+    color: #fff;
+    font-weight: 600;
+}
+
+tbody tr {
+    background-color: var(--white-_20);
+}
+
+tbody tr:hover {
+    background-color: var(--white-_50);
+}
+.user-data-table td:first-child {
+    font-weight: bold;
+    width: 180px;
+    color: var(--secondary-color);
+}
