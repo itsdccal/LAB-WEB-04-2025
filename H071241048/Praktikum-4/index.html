@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNO Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="start-screen" class="modal-overlay active">
+        <div class="modal-content">
+            <h2>Selamat Datang di UNO!</h2>
+            <p>Saldo Anda: <span id="start-balance">$5000</span></p>
+            <label for="bet-amount">Masukkan Taruhan (Min: $100):</label>
+            <input type="number" id="bet-amount" value="100" min="100" step="100">
+            <button id="start-game-btn">Mulai Ronde</button>
+        </div>
+    </div>
+
+    <div id="game-over-screen" class="modal-overlay">
+        <div class="modal-content">
+            <h2>Game Over</h2>
+            <p>Sayang sekali, saldo Anda habis!</p>
+            <button id="restart-game-btn">Mulai Ulang</button>
+        </div>
+    </div>
+    
+    <header class="game-info">
+        <h1>UNO Game</h1>
+        <div class="balance-info">
+            Saldo: <span id="player-balance">$5000</span> | Taruhan: <span id="current-bet">$0</span>
+        </div>
+    </header>
+
+    <main id="game-board">
+        <div id="bot-hand" class="hand-area">
+            </div>
+
+        <div class="center-area">
+            <div id="deck-pile" class="card-pile">
+                <img src="assets/card_back.png" alt="Deck">
+            </div>
+            <div id="discard-pile" class="card-pile">
+            </div>
+        </div>
+
+        <div id="player-hand" class="hand-area">
+            </div>
+    </main>
+    
+    <footer>
+        <div id="notification-area" aria-live="polite">Giliran Anda!</div>
+        <button id="uno-btn" class="hidden">UNO!</button>
+    </footer>
+
+    <div id="color-picker-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h3>Pilih Warna</h3>
+            <div class="color-options">
+                <div class="color-box red" data-color="red"></div>
+                <div class="color-box green" data-color="green"></div>
+                <div class="color-box blue" data-color="blue"></div>
+                <div class="color-box yellow" data-color="yellow"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
