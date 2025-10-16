@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Game UNO - Praktikum DOM</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .bet-area { display:flex; gap:10px; align-items:center; margin-top:8px; }
+    .bet-input {
+      width:140px;
+      padding:8px 10px;
+      border-radius:8px;
+      border:1px solid rgba(0,0,0,0.12);
+      font-weight:600;
+    }
+    .info-row { display:flex; gap:12px; align-items:center; justify-content:center; margin-top:6px; }
+    .current-bet { font-weight:700; color:#333; background:rgba(255,255,255,0.6); padding:6px 10px; border-radius:8px; }
+    .saldo-box { font-weight:700; color:#333; background:rgba(255,255,255,0.6); padding:6px 10px; border-radius:8px; }
+    .area-highlight { box-shadow: 0 0 0 6px rgba(144,202,249,0.12) inset, 0 6px 16px rgba(0,0,0,0.08); border-radius:12px; }
+    .area-highlight-player { box-shadow: 0 0 0 6px rgba(244,143,177,0.08) inset, 0 6px 16px rgba(0,0,0,0.06); }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>UNO Game</h1>
+    <div class="info-row">
+      <div class="saldo-box">Saldo: <span id="saldo">5000</span></div>
+      <div class="current-bet">Taruhan: <span id="currentBet">-</span></div>
+    </div>
+  </header>
+
+  <main>
+    <div>
+      <section class="game-board" id="boardRow">
+        <div class="deck">          <h3>Deck</h3>
+          <div id="deckPile"></div>
+
+          <div class="bet-area">
+            <input id="betInput" class="bet-input" type="number" min="100" placeholder="Taruhan minimal 100" />
+            <button id="startBtn" class="btn">Start</button>
+          </div>
+
+          <div style="margin-top:8px;">
+            <button id="drawCardBtn" class="btn" disabled>Ambil Kartu</button>
+            <button id="restartBtn" class="btn restart">Restart</button>
+          </div>
+        </div>
+
+        <div class="discard">
+          <h3>Kartu Teratas</h3>
+          <div id="discardPile"></div>
+        </div>
+      </section>
+
+      <section class="player-area" id="playerAreaWrapper">
+        <h2>Kartu Kamu</h2>
+        <div id="playerHand" class="hand"></div>
+        <button id="unoBtn" disabled class="btn uno">UNO!</button>
+      </section>
+
+      <section class="bot-area" id="botAreaWrapper">
+        <h2>Kartu Bot</h2>
+        <div id="botHand" class="hand"></div>
+      </section>
+    </div>
+
+    <section class="log-area">
+      <h2>Status Permainan</h2>
+      <div id="gameLog"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>UNO DOM Project - Pertemuan 4</p>
+  </footer>
+
+  <script>
+    const INITIAL_SALDO = 5000;
+    let saldo = INITIAL_SALDO;
+    let currentBet = 0;
+    let deck = [];
+    let playerHand = [];
+    let botHand = [];
+    let discardPile = [];
+    let currentTurn = "player";
+    let drawStack = 0;      
+    let chosenGroup = null; 
+    let gameOver = false;
+    let gameStarted = false;
+
+    const saldoEl = document.getElementById("saldo");
+    const currentBetEl = document.getElementById("currentBet");
+    const betInput = document.getElementById("betInput");
+    const startBtn = document.getElementById("startBtn");
+    const drawBtn = document.getElementById("drawCardBtn");
+    const restartBtn = document.getElementById("restartBtn");
+    const unoBtn = document.getElementById("unoBtn");
+
+
+    function log(message) {
+      const logDiv = document.getElementById("gameLog");
+      const p = document.createElement("p");
+      p.textContent = message;
+      logDiv.prepend(p);
+    }
+
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+
+    function refillDeckIfNeeded() {
+      if (deck.length === 0 && discardPile.length > 1) {
+        const top = discardPile.pop();
+        deck = discardPile.splice(0);
+        shuffle(deck);
+        discardPile = [top];
+        log("Deck di-shuffle ulang dari discard.");
+      }
+    }
+
+
+    function generateDeck() {
+      const types = ["giyu", "iguro", "nezuko", "mitsuri"];
+      const d = [];
+
+      types.forEach(type => {
+        for (let i = 0; i <= 9; i++) {
+          d.push({ group: type, type: "number", value: i });
+        }
+        d.push({ group: type, type: "reverse", value: "reverse" });
+        d.push({ group: type, type: "draw2", value: "plus2" });
+        d.push({ group: type, type: "skip", value: "skip" });
+      });
+
+      d.push({ group: "special", type: "wild", value: "wild" });
+      d.push({ group: "special", type: "wild4", value: "plus4" });
+
+      return shuffle(d);
+    }
+
+
+    function getCardImage(card) {
+      if (!card) return "assets/cards/back.png";
+      if (card.group === "special") {
+        return `assets/cards/${card.value}.png`;
+      } else {
+        return `assets/cards/${card.group}/${card.value}.png`;
+      }
+    }
+
+    function renderHands() {
+      const playerDiv = document.getElementById("playerHand");
+      const botDiv = document.getElementById("botHand");
+      playerDiv.innerHTML = "";
+      botDiv.innerHTML = "";
+
+      playerHand.forEach((card, idx) => {
+        const el = document.createElement("img");
+        el.className = "card-img";
+        el.src = getCardImage(card);
+        el.alt = `${card.group} ${card.value}`;
+        el.addEventListener("click", () => playCard(idx));
+        playerDiv.appendChild(el);
+      });
+
+      botHand.forEach(() => {
+        const el = document.createElement("img");
+        el.className = "card-img";
+        el.src = "assets/cards/back.png";
+        el.alt = "Kartu Bot";
+        botDiv.appendChild(el);
+      });
+
+      updateControls();
+      highlightTurn();
+    }
+
+    function renderDiscard() {
+      const discardDiv = document.getElementById("discardPile");
+      discardDiv.innerHTML = "";
+      const topCard = discardPile[discardPile.length - 1];
+      if (topCard) {
+        const el = document.createElement("img");
+        el.className = "card-img";
+        el.src = getCardImage(topCard);
+        el.alt = `${topCard.group} ${topCard.value}`;
+        discardDiv.appendChild(el);
+      }
+    }
+
+    function renderDeck() {
+      const deckDiv = document.getElementById("deckPile");
+      deckDiv.innerHTML = "";
+      if (deck.length > 0 && gameStarted) {
+        const el = document.createElement("img");
+        el.className = "card-img deck-card";
+        el.src = "assets/cards/back.png";
+        el.alt = "Deck";
+        deckDiv.appendChild(el);
+
+        const count = document.createElement("div");
+        count.style.marginTop = "6px";
+        count.style.fontWeight = "700";
+        count.style.color = "#333";
+        count.style.background = "rgba(255,255,255,0.6)";
+        count.style.padding = "4px 8px";
+        count.style.borderRadius = "8px";
+        count.textContent = deck.length + " kartu";
+        deckDiv.appendChild(count);
+      } else {
+        const el = document.createElement("img");
+        el.className = "card-img deck-card";
+        el.style.opacity = gameStarted ? "1" : "0.6";
+        el.src = "assets/cards/back.png";
+        el.alt = "Deck";
+        deckDiv.appendChild(el);
+      }
+    }
+
+    function updateControls() {
+      drawBtn.disabled = !(gameStarted && !gameOver && currentTurn === "player");
+      unoBtn.disabled = !(gameStarted && !gameOver && playerHand.length === 1);
+      startBtn.disabled = gameStarted || gameOver;
+      betInput.disabled = gameStarted || gameOver;
+    }
+
+    function highlightTurn() {
+      const playerArea = document.getElementById("playerAreaWrapper");
+      const botArea = document.getElementById("botAreaWrapper");
+      playerArea.classList.remove("area-highlight", "area-highlight-player");
+      botArea.classList.remove("area-highlight");
+      if (!gameStarted || gameOver) return;
+      if (currentTurn === "player") {
+        playerArea.classList.add("area-highlight-player");
+      } else {
+        botArea.classList.add("area-highlight");
+      }
+    }
+
+
+    function resetToBetting() {
+      gameStarted = false;
+      gameOver = false;
+      currentBet = 0;
+      currentBetEl.textContent = "-";
+      chosenGroup = null;
+      drawStack = 0;
+      playerHand = [];
+      botHand = [];
+      deck = [];
+      discardPile = [];
+      currentTurn = "player";
+      betInput.value = "";
+      renderHands();
+      renderDiscard();
+      renderDeck();
+      updateControls();
+      log("Masukkan nilai taruhan lalu tekan Start untuk mulai ronde.");
+    }
+
+    function startGame(bet) {
+      if (!Number.isFinite(bet) || bet < 100) {
+        alert("Taruhan minimal $100.");
+        return;
+      }
+      if (bet > saldo) {
+        alert("Taruhan melebihi saldo Anda.");
+        return;
+      }
+
+      currentBet = bet;
+      currentBetEl.textContent = "$" + currentBet;
+      betInput.disabled = true;
+      startBtn.disabled = true;
+
+      deck = generateDeck();
+      shuffle(deck);
+      playerHand = deck.splice(0, 7);
+      botHand = deck.splice(0, 7);
+      discardPile = [ deck.pop() ];
+
+      gameStarted = true;
+      gameOver = false;
+      chosenGroup = null;
+      drawStack = 0;
+      currentTurn = "player";
+
+      renderHands();
+      renderDiscard();
+      renderDeck();
+      log(`Ronde dimulai — Taruhan $${currentBet}. Giliran Kamu.`);
+      updateControls();
+      highlightTurn();
+    }
+
+
+    function applyBetResult(winner) {
+      if (!currentBet || currentBet <= 0) return;
+      if (winner === "player") {
+        saldo += currentBet;
+        log(`Kamu menang ronde → Saldo bertambah $${currentBet} (Total: $${saldo})`);
+      } else if (winner === "bot") {
+        saldo -= currentBet;
+        log(`Kamu kalah ronde → Saldo berkurang $${currentBet} (Total: $${saldo})`);
+      }
+      saldoEl.textContent = saldo;
+      if (saldo <= 0) {
+        saldo = 0;
+        saldoEl.textContent = saldo;
+        log("Saldo habis — Game Over. Tekan Restart untuk mengatur saldo ke awal.");
+      }
+    }
+
+    function checkWin() {
+      if (playerHand.length === 0) {
+        gameOver = true;
+        gameStarted = false;
+        log("🎉 Kamu Menang!");
+        applyBetResult("player");
+        updateControls();
+        return true;
+      }
+      if (botHand.length === 0) {
+        gameOver = true;
+        gameStarted = false;
+        log("💀 Bot Menang!");
+        applyBetResult("bot");
+        updateControls();
+        return true;
+      }
+      return false;
+    }
+
+
+    function canPlayCard(card, topCard) {
+      if (!card || !topCard) return false;
+
+      if (drawStack > 0) {
+        return (card.type === "draw2" || card.type === "wild4");
+      }
+
+      // Normal rules
+      if (card.type === "wild" || card.type === "wild4") return true;
+      const topGroup = chosenGroup || topCard.group;
+      if (card.group === topGroup) return true;
+      if (card.value === topCard.value) return true;
+      return false;
+    }
+
+    function chooseGroup(callback) {
+      const choice = prompt("Pilih karakter (giyu, nezuko, iguro, mitsuri):");
+      if (["giyu", "nezuko", "iguro", "mitsuri"].includes(choice)) {
+        chosenGroup = choice;
+      } else {
+        chosenGroup = "giyu";
+        log("Pilihan tidak valid → default giyu");
+      }
+      if (typeof callback === "function") callback();
+    }
+
+
+    function playCard(index) {
+      if (!gameStarted || gameOver || currentTurn !== "player") return;
+      const card = playerHand[index];
+      const topCard = discardPile[discardPile.length - 1];
+
+      if (drawStack > 0 && !(card.type === "draw2" || card.type === "wild4")) {
+        log(`Ada efek +${drawStack} aktif — kamu hanya boleh membalas dengan +2/+4 atau ambil ${drawStack} kartu.`);
+        return;
+      }
+
+      if (!canPlayCard(card, topCard)) {
+        log("Kartu tidak bisa dimainkan!");
+        return;
+      }
+
+      discardPile.push(card);
+      playerHand.splice(index, 1);
+      renderHands();
+      renderDiscard();
+      log(`Kamu mainkan ${card.group} ${card.value}`);
+
+      if (playerHand.length === 1) {
+        unoBtn.disabled = false;
+        log("Tinggal 1 kartu — tekan UNO!");
+      }
+
+      if (checkWin()) return;
+
+      if (card.type === "wild") {
+        chooseGroup(() => {
+          log("Kamu pilih karakter: " + chosenGroup);
+          nextTurn();
+        });
+        return;
+      }
+
+      if (card.type === "wild4") {
+        drawStack += 4;
+        chooseGroup(() => {
+          log("Kamu pilih karakter: " + chosenGroup);
+          nextTurn();
+        });
+        return;
+      }
+
+      if (card.type === "draw2") {
+        drawStack += 2;
+        nextTurn();
+        return;
+      }
+
+      if (card.type === "skip") {
+        log("Bot ter-skip!");
+        currentTurn = "player";
+        updateControls();
+        highlightTurn();
+        return;
+      }
+
+      if (card.type === "reverse") {
+        log("Bot ter-skip! (Reverse pada 2 pemain seperti Skip)");
+        currentTurn = "player";
+        updateControls();
+        highlightTurn();
+        return;
+      }
+
+      chosenGroup = null;
+      nextTurn();
+    }
+
+
+    function botPlay() {
+      if (!gameStarted || gameOver) return;
+      const topCard = discardPile[discardPile.length - 1];
+
+      if (drawStack > 0) {
+        let idx = botHand.findIndex(c => (c.type === "draw2" || c.type === "wild4"));
+        if (idx !== -1) {
+          const card = botHand.splice(idx, 1)[0];
+          discardPile.push(card);
+          renderHands();
+          renderDiscard();
+          log(`Bot mainkan ${card.group} ${card.value}`);
+
+          if (card.type === "draw2") {
+            drawStack += 2;
+            nextTurn();
+            return;
+          }
+          if (card.type === "wild4") {
+            drawStack += 4;
+            chosenGroup = ["giyu","nezuko","iguro","mitsuri"][Math.floor(Math.random()*4)];
+            log("Bot pilih karakter: " + chosenGroup);
+            nextTurn();
+            return;
+          }
+        } else {
+          refillDeckIfNeeded();
+          for (let i = 0; i < drawStack; i++) {
+            refillDeckIfNeeded();
+            const card = deck.pop();
+            if (card) botHand.push(card);
+          }
+          log("Bot ambil " + drawStack + " kartu!");
+          drawStack = 0;
+          renderHands();
+          currentTurn = "player";
+          updateControls();
+          highlightTurn();
+          return;
+        }
+      }
+
+      let playableIndex = botHand.findIndex(c => canPlayCard(c, topCard));
+      if (playableIndex !== -1) {
+        const card = botHand.splice(playableIndex, 1)[0];
+        discardPile.push(card);
+        renderHands();
+        renderDiscard();
+        log(`Bot mainkan ${card.group} ${card.value}`);
+
+        if (botHand.length === 1) log("Bot tinggal 1 kartu!");
+        if (checkWin()) return;
+
+        if (card.type === "wild") {
+          chosenGroup = ["giyu","nezuko","iguro","mitsuri"][Math.floor(Math.random()*4)];
+          log("Bot pilih karakter: " + chosenGroup);
+          nextTurn();
+          return;
+        }
+
+        if (card.type === "wild4") {
+          drawStack += 4;
+          chosenGroup = ["giyu","nezuko","iguro","mitsuri"][Math.floor(Math.random()*4)];
+          log("Bot pilih karakter: " + chosenGroup);
+          nextTurn();
+          return;
+        }
+
+        if (card.type === "draw2") {
+          drawStack += 2;
+          nextTurn();
+          return;
+        }
+
+        if (card.type === "skip" || card.type === "reverse") {
+          log("Kamu ter-skip!");
+          currentTurn = "bot";
+          setTimeout(botPlay, 900);
+          return;
+        }
+
+        chosenGroup = null;
+        nextTurn();
+      } else {
+        refillDeckIfNeeded();
+        const c = deck.pop();
+        if (c) {
+          botHand.push(c);
+          log("Bot ambil 1 kartu");
+        } else {
+          log("Deck kosong, tidak bisa ambil.");
+        }
+        renderHands();
+        currentTurn = "player";
+        updateControls();
+        highlightTurn();
+      }
+    }
+
+    function nextTurn() {
+      if (checkWin()) return;
+      currentTurn = currentTurn === "player" ? "bot" : "player";
+      renderHands();
+      renderDiscard();
+      renderDeck();
+      updateControls();
+      highlightTurn();
+
+      if (currentTurn === "bot") {
+        setTimeout(botPlay, 900);
+      } else {
+        log("Giliran Kamu!");
+      }
+    }
+
+    drawBtn.addEventListener("click", () => {
+      if (!gameStarted || gameOver || currentTurn !== "player") return;
+
+      if (drawStack > 0) {
+        refillDeckIfNeeded();
+        for (let i = 0; i < drawStack; i++) {
+          refillDeckIfNeeded();
+          const card = deck.pop();
+          if (card) playerHand.push(card);
+        }
+        log("Kamu ambil " + drawStack + " kartu!");
+        drawStack = 0;
+        renderHands();
+        renderDeck();
+        currentTurn = "bot";
+        updateControls();
+        setTimeout(botPlay, 900);
+        return;
+      }
+
+      refillDeckIfNeeded();
+      const newCard = deck.pop();
+      if (newCard) {
+        playerHand.push(newCard);
+        log("Kamu ambil 1 kartu");
+      } else {
+        log("Deck kosong, tidak dapat mengambil kartu.");
+      }
+      renderHands();
+      renderDeck();
+      currentTurn = "bot";
+      updateControls();
+      setTimeout(botPlay, 900);
+    });
+
+    unoBtn.addEventListener("click", () => {
+      if (!gameStarted || gameOver) return;
+      log("UNO ditekan!");
+      unoBtn.disabled = true;
+    });
+
+    startBtn.addEventListener("click", () => {
+      const bet = Number(betInput.value);
+      startGame(bet);
+    });
+
+    restartBtn.addEventListener("click", () => {
+      if (saldo <= 0) {
+        if (confirm("Saldo Anda habis. Reset saldo ke awal ($" + INITIAL_SALDO + ")?")) {
+          saldo = INITIAL_SALDO;
+          saldoEl.textContent = saldo;
+          log("Saldo direset ke awal $" + INITIAL_SALDO);
+        } else {
+          log("Restart dibatalkan.");
+        }
+      }
+      resetToBetting();
+    });
+
+    function initUI() {
+      saldo = INITIAL_SALDO;
+      saldoEl.textContent = saldo;
+      resetToBetting();
+    }
+
+    initUI();
+  </script>
+</body>
+</html>
