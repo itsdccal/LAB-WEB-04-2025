@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kiwkiw - Pecinta Bola Voli & Futsal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body class="bg-white">
+
+    <nav class="bg-white shadow-md p-4 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-sky-600">Pecinta Voli</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#beranda" class="text-gray-700 hover:text-sky-600 transition duration-300">Beranda</a>
+                <a href="#tentang" class="text-gray-700 hover:text-sky-600 transition duration-300">Tentang</a>
+                <a href="#fitur" class="text-gray-700 hover:text-sky-600 transition duration-300">Fitur</a>
+                <a href="#kontak" class="text-gray-700 hover:text-sky-600 transition duration-300">Kontak</a>
+            </div>
+        </div>
+    </nav>
+
+    <header id="beranda" class="bg-sky-50 min-h-screen flex items-center">
+        <div class="container mx-auto text-center px-4 py-16">
+            <h1 class="text-4xl md:text-6xl font-black text-sky-900 leading-tight">Selamat Datang para pecinta voli</h1>
+            <p class="text-lg md:text-xl text-gray-700 mt-4 font-light max-w-3xl mx-auto">Sebuah wadah untuk para pecinta dan penghobi bola voli dan futsal di seluruh Indonesia.</p>
+            <a href="#fitur" class="mt-8 inline-block bg-sky-500 text-white font-bold py-3 px-8 rounded-full hover:bg-sky-600 active:bg-sky-700 transition-transform transform hover:scale-105">
+                Jelajahi Sekarang
+            </a>
+        </div>
+    </header>
+<main>
+    <section id="tentang" class="py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4 text-gray-800">Tentang Komunitas Kami</h2>
+            <p class="text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                PecintaVoli  adalah platform yang didedikasikan untuk menghubungkan para pegiat olahraga, khususnya bola voli dan futsal. Tujuan kami adalah menciptakan ruang yang positif dan informatif bagi para pemain untuk berbagi pengalaman, tips & trik bermain, hingga cerita seru seputar bola kesayangan mereka.
+            </p>
+        </div>
+    </section>
+
+    <section id="fitur" class="bg-gray-50 py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Manfaat Bergabung</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center transform hover:-translate-y-2 transition-transform duration-300">
+                    <h3 class="font-semibold text-xl mb-2 text-sky-800">Forum Diskusi</h3>
+                    <p class="text-gray-600">Berbagi cerita, tips perawatan bola, dan bertanya kepada sesama anggota mengenai teknik bermain voli dan futsal.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center transform hover:-translate-y-2 transition-transform duration-300">
+                    <h3 class="font-semibold text-xl mb-2 text-sky-800">Galeri Aksi & Bola</h3>
+                    <p class="text-gray-600">Pamerkan momen terbaikmu di lapangan dan koleksi bola kesayanganmu. Lihat juga aksi keren dari anggota lain.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center transform hover:-translate-y-2 transition-transform duration-300">
+                    <h3 class="font-semibold text-xl mb-2 text-sky-800">Info Turnamen & Lapangan</h3>
+                    <p class="text-gray-600">Dapatkan informasi terbaru seputar jadwal sparing, turnamen lokal, dan rekomendasi lapangan bermain di sekitarmu.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="kontak" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">Dapatkan Info Lebih Lanjut</h2>
+            <div class="max-w-lg mx-auto bg-white p-8 rounded-xl shadow-2xl">
+                <form>
+                    <div class="mb-4">
+                        <label for="nama" class="block text-gray-700 font-medium mb-2">Nama Lengkap</label>
+                        <input type="text" id="nama" class="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent focus:outline-none transition" placeholder="Masukkan nama Anda">
+                    </div>
+                    <div class="mb-6">
+                        <label for="email" class="block text-gray-700 font-medium mb-2">Alamat Email</label>
+                        <input type="email" id="email" class="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent focus:outline-none transition" placeholder="Masukkan email Anda">
+                    </div>
+                    <button type="submit" class="w-full bg-sky-500 text-white font-bold py-3 px-4 rounded-lg hover:bg-sky-600 active:bg-sky-700 transition duration-300">
+                        Berlangganan Info
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+
+
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2025 PecintaVoli. Dibuat dengan semangat olahraga.</p>
+            <div class="flex justify-center space-x-4 mt-4">
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">Facebook</a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">Instagram</a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">Twitter</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
