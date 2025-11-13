@@ -1,0 +1,187 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Times New Roman';
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  background: #fffef5;
+  color: #333;
+}
+
+header {
+  background: linear-gradient(90deg, #ffe259, #f7c604, #ffb347);
+  color: #2c3e50;
+  padding: 15px 0;
+  text-align: center;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: bold;
+  color: #2c3e50;
+  background: rgb(250, 250, 247);
+  padding: 10px 15px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+nav ol {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+nav ol li {
+  margin: 0 15px;
+}
+
+nav ol li a {
+  text-decoration: none;
+  color: #2c3e50;
+  font-weight: bold;
+  transition: color 0.3s, border-bottom 0.3s;
+  padding-bottom: 3px;
+}
+
+nav ol li a:hover {
+  color: white;
+  border-bottom: 2px solid white;
+}
+
+img {
+  display: block;
+  margin: 20px auto;
+  border-radius: 50%;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+h1, h2, h3 {
+  text-align: center;
+  margin: 15px 0;
+  color: #2c3e50;
+}
+
+p {
+  margin: 10px auto;
+  max-width: 800px;
+  text-align: center;
+  font-size: 16px;
+}
+
+table {
+  width: 80%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+table th, table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: center;
+}
+
+table th {
+  background: linear-gradient(90deg, #ffe259, #f1c40f, #ffb347);
+  color: #2c3e50;
+}
+
+table tr:nth-child(even) {
+  background: #fff9d6;
+}
+
+section {
+  width: 80%;
+  margin: 30px auto;
+  padding: 15px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+section h2 {
+  margin-bottom: 10px;
+  border-bottom: 2px solid #f1c40f;
+  display: inline-block;
+  padding-bottom: 5px;
+  color: #2c3e50;
+}
+
+ul, ol, dl {
+  margin-left: 30px;
+  padding: 10px 0;
+}
+
+ul li, ol li, dl dd {
+  margin: 6px 0;
+}
+
+form {
+  width: 80%;
+  margin: 20px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+form input[type="radio"],
+form input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+form input[type="submit"],
+form input[type="button"] {
+  background: linear-gradient(90deg, #ffe259, #f1c40f, #ffb347);
+  color: #2c3e50;
+  padding: 10px 20px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+form input[type="submit"]:hover,
+form input[type="button"]:hover {
+  background: linear-gradient(90deg, #ffb347, #f39c12, #e67e22);
+  color: white;
+}
+
+footer {
+  background: linear-gradient(90deg, #ffe259, #f1c40f, #ffb347);
+  color: #2c3e50;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 40px;
+}
+
+footer a {
+  color: #2c3e50;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
